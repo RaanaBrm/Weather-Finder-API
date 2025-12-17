@@ -1,3 +1,6 @@
+const API_KEY = "a887201f96aaf456017667a0680fad31";
+const LAST_CITY_KEY = "lastCity";
+
 $(() => {
 
    $(`.overlay`).delay(6000).fadeOut();
