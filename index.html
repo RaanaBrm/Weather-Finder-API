@@ -1,11 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherFinder</title>
+    <link rel="icon" type="image/x-icon" href="./images/logoWeather.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <script src="./scripts/jquery-3.7.1.min.js" defer></script>
+    <script src="./scripts/script.js" defer></script>
+  </head>
+  <body>
+    <div class="overlay"></div>
+
+    <header class="header">
+      <img
+        src="./images/logoWeather.png"
+        alt="Good Weather Logo"
+        class="header-logo"
+      />
+      <h1>WeatherFinder</h1>
+    </header>
+
+    <div class="card">
+      <p class="subtitle">Search for a city to see the current weather.</p>
+
+      <form id="weatherForm">
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="e.g. London, Paris, Stockholm"
+          required
+        />
+        <button type="submit">Get Weather</button>
+      </form>
+
+      <div id="status" class="status"></div>
+
+      <div id="weatherBox" class="weather-box hidden">
+        <div class="weather-header">
+          <div>
+            <div id="cityName" class="weather-city"></div>
+            <div id="description" class="weather-meta"></div>
+          </div>
+
+          <img id="weatherIcon" class="icon" alt="" />
+        </div>
+
+        <div id="temperature" class="weather-main"></div>
+
+        <div class="weather-meta">
+          <span id="feelsLike"></span>
+          <span id="humidity"></span>
+          <span id="wind"></span>
+        </div>
+      </div>
+
+      <div id="forecastBox" class="weather-box hidden"></div>
+    </div>
+  </body>
 </html>
