@@ -111,6 +111,7 @@ document.querySelector("#weatherForm").addEventListener("submit", (event) => {
 
   fetchWeather(city);
 });
+
 document.addEventListener("DOMContentLoaded", () => {
     const lastCity = localStorage.getItem(LAST_CITY_KEY);
   
@@ -120,7 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
    
-
 $(() => {
 
    $(`.overlay`).delay(6000).fadeOut();
