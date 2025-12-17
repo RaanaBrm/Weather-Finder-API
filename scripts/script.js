@@ -97,6 +97,20 @@ const fetchForecast = async (city) => {
     forecastBox.innerHTML = "";
   }
 };
+
+document.querySelector("#weatherForm").addEventListener("submit", (event) => {
+  event.preventDefault(); 
+
+  const city = cityInput.value.trim();
+
+  if (city === "") {
+    statusBox.classList.add("error");
+    statusBox.innerText = "Please enter a city first.";
+    return;
+  }
+
+  fetchWeather(city);
+});
   
 $(() => {
 
