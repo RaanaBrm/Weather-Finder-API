@@ -1,0 +1,63 @@
+:root {
+    --background-button: #2870d5;
+    --background-button-hover: #124997;
+    --text-color: white;
+    --subtitle-color: #6b7280;
+    --background-weather-box: rgba(226, 238, 255, 0.584);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", "Segoe UI", sans-serif;
+    background-image: url("../images/pinkBG.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    margin: 0;
+    padding: 16px;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    align-items: start;
+}
+
+.overlay {
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url("../images/pinkBG.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: 100;
+} 
+
+.header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-logo {
+    width: 40px; 
+    height: auto;
+} 
+
+h1 {
+    color: var(--text-color);
+    font-size: 1rem;
+    margin: 0 0 4px;
+}
