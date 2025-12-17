@@ -53,6 +53,50 @@ const fetchForecast = async (city) => {
       forecastBox.appendChild(div);
     }
   };
+
+  const fetchWeather = async (city) => {
+  try {
+    statusBox.classList.remove("error");
+    statusBox.innerText = "Loading weather...";
+    weatherBox.classList.add("hidden");
+    forecastBox.classList.add("hidden");
+
+    const URL =
+      `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`;
+
+    const response = await fetch(URL);
+
+    if (!response.ok) {
+      throw new Error("City not found or invalid API key");
+    }
+
+    const data = await response.json();
+    
+    localStorage.setItem(LAST_CITY_KEY, city);
+
+    statusBox.innerText = "";
+    cityNameEl.innerText = data.name + ", " + data.sys.country;
+    temperatureEl.innerText = Math.floor(data.main.temp) + "°C";
+    descriptionEl.innerText = data.weather[0].description;
+    humidityEl.innerText = "Humidity: " + data.main.humidity + "%";
+    feelsLikeEl.innerText = "Feels like: " + Math.floor(data.main.feels_like) + "°C";
+    windEl.innerText = "Wind: " + data.wind.speed + " m/s";
+
+    iconEl.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    iconEl.alt = data.weather[0].description;
+    weatherBox.classList.remove("hidden");
+
+    const forecastData = await fetchForecast(city);
+    renderForecast(forecastData);
+
+  } catch (error) {
+    statusBox.classList.add("error");
+    statusBox.innerText = error.message;
+    weatherBox.classList.add("hidden");
+    forecastBox.classList.add("hidden");
+    forecastBox.innerHTML = "";
+  }
+};
   
 $(() => {
 
